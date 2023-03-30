@@ -10,7 +10,7 @@ import org.junit.jupiter.api.Test;
 
 public class FakeChessGameDaoTest {
     private static final String gameName = "test";
-    private final FakeGameDao fakeGameDao = new FakeGameDao();
+    private final GameDao fakeGameDao = new FakeGameDao();
 
     @BeforeEach
     void beforeEach() {
