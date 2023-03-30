@@ -6,7 +6,6 @@ import chessgame.domain.ChessBoardFactory;
 import chessgame.domain.Game;
 
 public class ChessService {
-    private static final String CONTINUE_COMMAND = "y";
     private final ChessGameDao chessGameDao = new ChessGameDao();
 
     public ChessService() {
@@ -16,9 +15,9 @@ public class ChessService {
         return chessGameDao.read(gameName) != null;
     }
 
-    public Game setGame(String gameName, String continueCommand) {
+    public Game setGame(String gameName, boolean isContinue) {
         Game readGame = chessGameDao.read(gameName);
-        if (!continueCommand.equals(CONTINUE_COMMAND)) {
+        if (isContinue) {
             return new Game(new Board(ChessBoardFactory.create()), gameName);
         }
         readGame.setTeamState(chessGameDao.findTurnByGame(gameName));

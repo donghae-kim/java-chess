@@ -29,7 +29,7 @@ class ChessServiceTest {
     @DisplayName("시작 시 이어하기 게임을 설정하도록 테스트 한다.")
     void Should_SetGame_WhenStart() {
         chessService.saveGame(game);
-        Assertions.assertThat(chessService.setGame(gameName, "y")).usingRecursiveComparison().isEqualTo(game);
+        Assertions.assertThat(chessService.setGame(gameName, true)).usingRecursiveComparison().isEqualTo(game);
     }
 
     @Test

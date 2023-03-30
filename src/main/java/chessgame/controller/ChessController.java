@@ -38,8 +38,8 @@ public class ChessController {
     private Game makeGame(String gameName) {
         if (chessService.hasGame(gameName)) {
             outputView.printContinueMessage();
-            String continuousCommand = inputView.readContinuousCommand();
-            return chessService.setGame(gameName, continuousCommand);
+
+            return chessService.setGame(gameName, inputView.readContinuousCommand());
         }
         return new Game(new Board(ChessBoardFactory.create()), gameName);
     }

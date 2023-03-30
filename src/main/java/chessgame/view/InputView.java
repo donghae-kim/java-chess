@@ -24,10 +24,13 @@ public class InputView {
         }
     }
 
-    public String readContinuousCommand() {
+    public boolean readContinuousCommand() {
         String continueCommand = scanner.nextLine();
         validateContinueCommand(continueCommand);
-        return continueCommand;
+        if(continueCommand.equals(CONTINUE_COMMAND)){
+            return true;
+        }
+        return false;
     }
 
     private boolean validateContinueCommand(String continueCommand) {
